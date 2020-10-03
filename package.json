@@ -5,15 +5,22 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "browserdist": "browserify ./index.js | terser --compress --mangle > ./bundle.js"
   },
   "dependencies": {
     "@react-native-community/hooks": "^2.6.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
+    "brain.js": "^2.0.0-beta.2",
     "expo": "~39.0.2",
+    "expo-speech": "~8.4.0",
     "expo-status-bar": "~1.0.2",
+    "fs": "0.0.1-security",
+    "natural": "^2.1.5",
+    "node-nlp": "^4.12.0",
+    "node-nlp-rn": "^3.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
@@ -24,7 +31,9 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "browserify": "^16.5.2",
+    "terser": "^5.3.4"
   },
   "private": true
 }

@@ -17,9 +17,10 @@ class WelcomeScreen extends React.Component {
         style={styles.background}
         source={require('../assets/background.png')}
       >
+        {Speech.speak(messageOne, messageOptions)}
         <View style={styles.logoContainer}>
           <Text style={styles.logoText}>
-            Minions' Intelligence Agency
+            Minions
             <Button
               style={styles.tummyButton}
               title='CLICK HERE'
@@ -35,9 +36,7 @@ class WelcomeScreen extends React.Component {
             style={styles.chanllengeButton}
             title='Chanllenge'
             //"Images" is how the name defined on App.js Stack.Screen
-            onPress={() =>
-              this.props.navigation.navigate(`Player's Intelligence Result`)
-            }
+            onPress={() => this.props.navigation.navigate(`Level 1`)}
           ></Button>
         </View>
         <View style={styles.registerButton}>
@@ -55,7 +54,8 @@ class WelcomeScreen extends React.Component {
   }
 }
 //SPEECH
-const messageOne = `blahblahblah, As, minions, we are very proud of our intelligent! Don't believe us? We will show you......Click test,Minions' intelligence now `;
+const messageOne = `blahblahblah, helloooo, WE, the awesome minions, are searching for our next terific  Master`;
+const messageTwo = `blahblahblah, As, minions, we are very proud of our intelligent,  Don't believe us? We will show you......Click test,Minions' intelligence now `;
 const messageQuestion = `Answer me two questions, and I will know if you an adult or a child!`;
 const messageOptions = {
   language: 'en',

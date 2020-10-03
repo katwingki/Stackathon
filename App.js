@@ -10,6 +10,7 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import AdultOrChildResult from './app/screens/AdultOrChildResult';
 import AdultOrChildForm from './app/screens/AdultOrChildForm';
 import SentenceResult from './app/screens/SentenceResult';
+import SentenceForm from './app/screens/SentenceForm';
 
 function App() {
   return (
@@ -24,10 +25,8 @@ function App() {
           name={`Testing Minions' Intelligence`}
           component={AdultOrChildForm}
         />
-        <Stack.Screen
-          name={`Player's Intelligence Result`}
-          component={SentenceResult}
-        />
+        <Stack.Screen name={`Level 1`} component={SentenceForm} />
+        <Stack.Screen name={`Level 1 - Result`} component={SentenceResult} />
       </Stack.Navigator>
     </NavigationContainer>
   );

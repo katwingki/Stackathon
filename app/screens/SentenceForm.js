@@ -11,35 +11,34 @@ import {
 import * as Speech from 'expo-speech';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-class AdultOrChildForm extends React.Component {
+const messageQuestion = `blahblahblah, Welcome to minionized tricky question number 1, enter the first sentence that comes in your mind to pass this level. litlittle hint don't forget the punctuation. Let's go `;
+const messageOptions = {
+  language: 'en',
+  pitch: '10',
+  rate: '1.1',
+};
+
+class SentenceForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      height: 0,
-      weight: 0,
+      sentence: '',
       speak: true,
     };
-    this.handleHeightChange = this.handleHeightChange.bind(this);
-    this.handleWeightChange = this.handleWeightChange.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleHeightChange(heightEntered) {
-    this.setState({ height: heightEntered, speak: false });
-  }
-
-  handleWeightChange(weightEntered) {
-    this.setState({ weight: weightEntered });
+  handleFormChange(SenEntered) {
+    this.setState({ sentence: SenEntered, speak: false });
   }
 
   handleSubmit() {
-    this.props.navigation.navigate(`Minion's response`, {
-      height: this.state.height,
-      weight: this.state.weight,
+    this.props.navigation.navigate(`Level 1 - Result`, {
+      sentence: this.state.sentence,
     });
     this.setState({
-      height: 0,
-      weight: 0,
+      sentence: '',
     });
   }
 
@@ -51,27 +50,17 @@ class AdultOrChildForm extends React.Component {
             ? Speech.speak(messageQuestion, messageOptions)
             : null}
           <Text style={styles.header}>
-            Answer these two questions, and I will know if you are an adult or a
-            child!
+            Enter the first complete sentence that comes in your mind:
           </Text>
         </View>
         <ScrollView onBlur={Keyboard.dismiss}>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.textInput}
-              placeholder='Your height in feet'
-              maxLength={20}
-              value={this.state.height}
-              onChangeText={this.handleHeightChange}
-              keyboardType={'numeric'}
-            />
-            <TextInput
-              style={styles.textInput}
-              placeholder='Your weight in pound'
-              maxLength={20}
-              value={this.state.weight}
-              keyboardType={'numeric'}
-              onChangeText={this.handleWeightChange}
+              placeholder='Enter a complete sentence'
+              maxLength={50}
+              value={this.state.sentence}
+              onChangeText={this.handleFormChange}
             />
           </View>
           <TouchableOpacity
@@ -85,12 +74,6 @@ class AdultOrChildForm extends React.Component {
     );
   }
 }
-const messageQuestion = `blahblahblah, Answer these two questions, and we will know if you an adult or a child!`;
-const messageOptions = {
-  language: 'en',
-  pitch: '10',
-  rate: '1.1',
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -133,4 +116,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AdultOrChildForm;
+export default SentenceForm;
