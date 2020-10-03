@@ -6,28 +6,15 @@ import 'react-native-gesture-handler';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 //Other Components
+import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
-import AdultOrChildResult from './app/screens/AdultOrChildResult';
-import AdultOrChildForm from './app/screens/AdultOrChildForm';
-import SentenceResult from './app/screens/SentenceResult';
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Home' component={WelcomeScreen} />
-        <Stack.Screen
-          name={`Minion's response`}
-          component={AdultOrChildResult}
-        />
-        <Stack.Screen
-          name={`Testing Minions' Intelligence`}
-          component={AdultOrChildForm}
-        />
-        <Stack.Screen
-          name={`Player's Intelligence Result`}
-          component={SentenceResult}
-        />
+        <Stack.Screen name='Images' component={ViewImageScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
