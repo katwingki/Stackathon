@@ -51,8 +51,8 @@ class AdultOrChildForm extends React.Component {
             ? Speech.speak(messageQuestion, messageOptions)
             : null}
           <Text style={styles.header}>
-            Answer these two questions, and I will know if you are an adult or a
-            child!
+            Answer these two questions, and we will know if you are an adult or
+            a child!
           </Text>
         </View>
         <ScrollView onBlur={Keyboard.dismiss}>
@@ -67,7 +67,7 @@ class AdultOrChildForm extends React.Component {
             />
             <TextInput
               style={styles.textInput}
-              placeholder='Your weight in pound'
+              placeholder='Your weight in pounds'
               maxLength={20}
               value={this.state.weight}
               keyboardType={'numeric'}

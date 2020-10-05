@@ -114,7 +114,7 @@ function SentenceResult(props) {
     certaintyComplete > certaintyIncomplete
       ? `teerrific, you pass,`
       : `uh-oh, oh-no, `
-  }Based on our minions-lize analysis, we are ${
+  }Based on our minions-ize analysis, we are ${
     certaintyComplete > certaintyIncomplete
       ? certaintyComplete
       : certaintyIncomplete
@@ -130,14 +130,14 @@ function SentenceResult(props) {
         {Speech.speak(message, messageOptions)}
         <Text style={styles.textStyle}>
           {'\n'}
-          {`Based on our minions-lize analysis, we are ${
+          {`Based on our minions-ize analysis, we are ${
             certaintyComplete > certaintyIncomplete
               ? certaintyComplete
               : certaintyIncomplete
           }% certain that the sentence you entered "${sentence}" is ${
             certaintyComplete > certaintyIncomplete
               ? `a complete sentence.`
-              : `not a incomplete sentence.`
+              : `not a complete sentence.`
           }`}
           {'\n'}
         </Text>

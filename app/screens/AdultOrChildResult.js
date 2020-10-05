@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import brain from 'brain.js';
 import * as Speech from 'expo-speech';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const networkAdultOrChild = new brain.NeuralNetwork();
 networkAdultOrChild.train(
@@ -65,12 +66,27 @@ function AdultOrChildResult(props) {
             ? ` ${percentageAdult}`
             : ` ${percentageChild}`}
           % certain that you are{' '}
-          {percentageAdult > percentageChild ? 'an adult' : 'a child'}
+          {percentageAdult > percentageChild ? 'an adult.' : 'a child.'}
           {'\n'}
         </Text>
       </View>
+
+      <Image
+        resizeMode='contain'
+        style={styles.image}
+        source={require('../assets/happyMinion.png')}
+      ></Image>
       <View style={styles.generalContainer1}>
-        <Text style={styles.questionStyle}> Am I right ? </Text>
+        <Text style={styles.submitWhiteText}>
+          Want to see if you are good enough to be our master?
+          {'\n'}
+        </Text>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => props.navigation.navigate(`Level 1`)}
+        >
+          <Text style={styles.submitButtonText}> Master Challenge</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -85,7 +101,7 @@ const styles = StyleSheet.create({
   },
   generalContainer: {
     width: '100%',
-    height: 100,
+    height: 300,
     position: 'absolute',
     top: 50, //50pixel on the top of the screen
     alignItems: 'center',
@@ -93,24 +109,42 @@ const styles = StyleSheet.create({
   },
   generalContainer1: {
     position: 'absolute',
-    top: 150, //50pixel on the top of the screen
+    top: 510, //50pixel on the top of the screen
     alignItems: 'center',
   },
   textStyle: {
-    flex: 2,
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 25,
     fontFamily: 'Avenir',
     padding: 2,
   },
-  questionStyle: {
-    flex: 3,
-    fontSize: 25,
-    textAlign: 'center',
-    margin: 10,
+  image: {
+    flex: 1,
+    width: '80%',
+    height: '70%',
+  },
+  loginButton: {
+    width: 250,
+    borderWidth: 4,
+    borderColor: 'white',
+    borderRadius: 15,
+    backgroundColor: '#ff8000',
+    padding: 15,
+    margin: 1,
+  },
+  submitButtonText: {
+    color: '#000066',
+    fontSize: 20,
     fontWeight: 'bold',
-    color: 'black',
+    textAlign: 'center',
+  },
+  submitWhiteText: {
+    color: '#e6ffe6',
+    fontSize: 24,
+    fontWeight: 'bold',
+    fontFamily: 'Menlo-Bold',
+    textAlign: 'center',
   },
 });
 
